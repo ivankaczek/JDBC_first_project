@@ -16,8 +16,14 @@ public class TestMySqlJDBC {
             ResultSet resultado = instruccion.executeQuery(sql);
             while(resultado.next()){
                 System.out.println("Id Persona: " + resultado.getInt("id_persona"));
+                System.out.println("Nombre: " + resultado.getString("nombre"));
+                System.out.println("Apellido: " + resultado.getString("apellido"));
+                System.out.println("Telefono: " + resultado.getString("telefono"));
+                System.out.println("");
             }
-            
+            resultado.close();
+            instruccion.close();
+            conexion.close();
         } catch (ClassNotFoundException ex) {
             ex.printStackTrace(System.out);
         } catch(SQLException ex){
